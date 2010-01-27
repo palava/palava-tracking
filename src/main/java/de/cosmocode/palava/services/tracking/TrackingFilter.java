@@ -1,6 +1,6 @@
 /**
  * palava - a java-php-bridge
- * Copyright (C) 2007  CosmoCode GmbH
+ * Copyright (C) 2007-2010  CosmoCode GmbH
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -23,8 +23,8 @@ import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.cosmocode.palava.core.bridge.request.HttpRequest;
-import de.cosmocode.palava.core.bridge.request.RequestFilter;
+import de.cosmocode.palava.bridge.request.HttpRequest;
+import de.cosmocode.palava.bridge.request.RequestFilter;
 
 /**
  * Intercepts certain requests and delegates to the

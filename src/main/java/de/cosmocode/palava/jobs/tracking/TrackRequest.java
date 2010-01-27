@@ -1,6 +1,6 @@
 /**
  * palava - a java-php-bridge
- * Copyright (C) 2007  CosmoCode GmbH
+ * Copyright (C) 2007-2010  CosmoCode GmbH
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -22,12 +22,12 @@ package de.cosmocode.palava.jobs.tracking;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.cosmocode.palava.core.bridge.call.Call;
-import de.cosmocode.palava.core.bridge.command.Command;
-import de.cosmocode.palava.core.bridge.command.CommandException;
-import de.cosmocode.palava.core.bridge.request.HttpRequest;
-import de.cosmocode.palava.core.bridge.simple.content.Content;
-import de.cosmocode.palava.core.bridge.simple.content.JsonContent;
+import de.cosmocode.palava.bridge.Content;
+import de.cosmocode.palava.bridge.call.Call;
+import de.cosmocode.palava.bridge.command.Command;
+import de.cosmocode.palava.bridge.command.CommandException;
+import de.cosmocode.palava.bridge.content.JsonContent;
+import de.cosmocode.palava.bridge.request.HttpRequest;
 import de.cosmocode.palava.services.tracking.TrackingService;
 
 /**
