@@ -22,12 +22,12 @@ package de.cosmocode.palava.jobs.tracking;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.cosmocode.palava.core.call.Call;
-import de.cosmocode.palava.core.command.Command;
-import de.cosmocode.palava.core.command.CommandException;
-import de.cosmocode.palava.core.protocol.content.Content;
-import de.cosmocode.palava.core.protocol.content.JsonContent;
-import de.cosmocode.palava.core.request.HttpRequest;
+import de.cosmocode.palava.core.bridge.call.Call;
+import de.cosmocode.palava.core.bridge.command.Command;
+import de.cosmocode.palava.core.bridge.command.CommandException;
+import de.cosmocode.palava.core.bridge.request.HttpRequest;
+import de.cosmocode.palava.core.bridge.simple.content.Content;
+import de.cosmocode.palava.core.bridge.simple.content.JsonContent;
 import de.cosmocode.palava.services.tracking.TrackingService;
 
 /**

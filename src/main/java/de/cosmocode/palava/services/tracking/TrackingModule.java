@@ -19,7 +19,7 @@
 
 package de.cosmocode.palava.services.tracking;
 
-import de.cosmocode.palava.core.inject.PalavaModule;
+import de.cosmocode.palava.core.inject.AbstractApplication;
 
 /**
  * Binds the {@link LogTrackingService} as default implementation
@@ -28,7 +28,7 @@ import de.cosmocode.palava.core.inject.PalavaModule;
  *
  * @author Willi Schoenborn
  */
-public final class TrackingModule extends PalavaModule {
+public final class TrackingModule extends AbstractApplication {
 
     @Override
     protected void configureApplication() {

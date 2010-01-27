@@ -19,8 +19,8 @@
 
 package de.cosmocode.palava.services.tracking;
 
-import de.cosmocode.palava.core.Service;
-import de.cosmocode.palava.core.request.HttpRequest;
+import de.cosmocode.palava.core.bridge.request.HttpRequest;
+import de.cosmocode.palava.core.framework.Service;
 
 /**
  * A {@link Service} which handles {@link HttpRequest} tracking.
