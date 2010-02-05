@@ -36,12 +36,12 @@ import de.cosmocode.palava.bridge.request.HttpRequest;
 @Singleton
 public final class LogTrackingService implements TrackingService {
 
-    private static final Logger log = LoggerFactory.getLogger(LogTrackingService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LogTrackingService.class);
 
     @Override
     public void save(HttpRequest request) {
         Preconditions.checkNotNull(request, "Request");
-        log.info("Request on {} (address={}, sessionId={}, userAgent={})", new Object[] {
+        LOG.info("Request on {} (address={}, sessionId={}, userAgent={})", new Object[] {
             request.getRequestUri(), request.getRemoteAddress(), 
             request.getHttpSession().getSessionId(), request.getUserAgent()
         });
