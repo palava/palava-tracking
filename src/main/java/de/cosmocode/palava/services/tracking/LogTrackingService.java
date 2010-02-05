@@ -33,7 +33,6 @@ import de.cosmocode.palava.bridge.request.HttpRequest;
  *
  * @author Willi Schoenborn
  */
-@Singleton
 public final class LogTrackingService implements TrackingService {
 
     private static final Logger LOG = LoggerFactory.getLogger(LogTrackingService.class);
