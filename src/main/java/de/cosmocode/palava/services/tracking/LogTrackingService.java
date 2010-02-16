@@ -23,7 +23,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
-import com.google.inject.Singleton;
 
 import de.cosmocode.palava.bridge.request.HttpRequest;
 
