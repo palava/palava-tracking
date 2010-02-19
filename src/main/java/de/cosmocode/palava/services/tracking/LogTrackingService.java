@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Singleton;
 
 import de.cosmocode.palava.bridge.request.HttpRequest;
 
@@ -32,7 +33,8 @@ import de.cosmocode.palava.bridge.request.HttpRequest;
  *
  * @author Willi Schoenborn
  */
-public final class LogTrackingService implements TrackingService {
+@Singleton
+final class LogTrackingService implements TrackingService {
 
     private static final Logger LOG = LoggerFactory.getLogger(LogTrackingService.class);
 

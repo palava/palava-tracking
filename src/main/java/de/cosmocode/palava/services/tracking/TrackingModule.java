@@ -32,7 +32,7 @@ public final class TrackingModule extends AbstractApplication {
 
     @Override
     protected void configureApplication() {
-        serve(TrackingService.class).with(LogTrackingService.class);
+        bind(TrackingService.class).to(LogTrackingService.class);
         filterRequestsWith(TrackingFilter.class);
     }
 
