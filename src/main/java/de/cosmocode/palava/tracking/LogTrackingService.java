@@ -17,35 +17,32 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package de.cosmocode.palava.jobs.tracking;
+package de.cosmocode.palava.tracking;
 
-import com.google.inject.Inject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Preconditions;
 import com.google.inject.Singleton;
 
-import de.cosmocode.palava.bridge.Content;
-import de.cosmocode.palava.bridge.call.Call;
-import de.cosmocode.palava.bridge.command.Command;
-import de.cosmocode.palava.bridge.command.CommandException;
-import de.cosmocode.palava.bridge.content.JsonContent;
-import de.cosmocode.palava.bridge.request.HttpRequest;
-import de.cosmocode.palava.services.tracking.TrackingService;
+import de.cosmocode.palava.ipc.IpcConnection;
 
 /**
- * Tracks the current {@link HttpRequest} using the default
- * binding for {@link TrackingService}.
+ * Default implementation of the {@link TrackingService} which
+ * logs all incoming requests using its {@link Logger}.
  *
  * @author Willi Schoenborn
  */
 @Singleton
-public class TrackRequest implements Command {
+final class LogTrackingService implements TrackingService {
 
-    @Inject
-    private TrackingService service;
-    
+    private static final Logger LOG = LoggerFactory.getLogger(LogTrackingService.class);
+
     @Override
-    public Content execute(Call call) throws CommandException {
-        service.save(call.getHttpRequest());
-        return JsonContent.EMPTY;
+    public void save(IpcConnection connection) {
+        Preconditions.checkNotNull(connection, "Request");
+        // TODO extract http specific values
+        LOG.info("Request on {}", connection);
     }
 
 }

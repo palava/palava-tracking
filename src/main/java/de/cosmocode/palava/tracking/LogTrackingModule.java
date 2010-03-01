@@ -17,9 +17,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package de.cosmocode.palava.services.tracking;
+package de.cosmocode.palava.tracking;
 
-import de.cosmocode.palava.bridge.inject.AbstractApplication;
+import com.google.inject.Binder;
+import com.google.inject.Module;
+import com.google.inject.Singleton;
 
 /**
  * Binds the {@link LogTrackingService} as default implementation
@@ -28,12 +30,11 @@ import de.cosmocode.palava.bridge.inject.AbstractApplication;
  *
  * @author Willi Schoenborn
  */
-public final class TrackingModule extends AbstractApplication {
+public final class LogTrackingModule implements Module {
 
     @Override
-    protected void configureApplication() {
-        bind(TrackingService.class).to(LogTrackingService.class);
-        filterRequestsWith(TrackingFilter.class);
+    public void configure(Binder binder) {
+        binder.bind(TrackingService.class).to(LogTrackingService.class).in(Singleton.class);
     }
 
 }

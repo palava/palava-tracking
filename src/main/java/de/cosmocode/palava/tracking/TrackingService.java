@@ -17,39 +17,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package de.cosmocode.palava.services.tracking;
+package de.cosmocode.palava.tracking;
 
-import com.google.common.base.Preconditions;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import org.jboss.netty.handler.codec.http.HttpRequest;
 
-import de.cosmocode.palava.bridge.request.HttpRequest;
-import de.cosmocode.palava.bridge.request.RequestFilter;
+import de.cosmocode.palava.core.Service;
+import de.cosmocode.palava.ipc.IpcConnection;
 
 /**
- * Intercepts certain requests and delegates to the
- * default binding for {@link TrackingService}.
+ * A {@link Service} which handles {@link HttpRequest} tracking.
  *
  * @author Willi Schoenborn
  */
-@Singleton
-public final class TrackingFilter implements RequestFilter {
+public interface TrackingService extends Service {
 
-    private final TrackingService service;
+    /**
+     * Tracks the specified request.
+     * 
+     * @param connection the incoming request
+     * @throws NullPointerException if request is null
+     */
+    void save(IpcConnection connection);
     
-    @Inject
-    public TrackingFilter(TrackingService service) {
-        this.service = Preconditions.checkNotNull(service, "Service");
-    }
-    
-    @Override
-    public void before(HttpRequest request) {
-        service.save(request);
-    }
-
-    @Override
-    public void after(HttpRequest request) {
-        
-    }
-
 }

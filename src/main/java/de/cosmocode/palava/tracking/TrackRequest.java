@@ -17,34 +17,39 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package de.cosmocode.palava.services.tracking;
+package de.cosmocode.palava.tracking;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Map;
+
+import org.jboss.netty.handler.codec.http.HttpRequest;
 
 import com.google.common.base.Preconditions;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import de.cosmocode.palava.bridge.request.HttpRequest;
+import de.cosmocode.palava.ipc.IpcCall;
+import de.cosmocode.palava.ipc.IpcCommand;
+import de.cosmocode.palava.ipc.IpcCommandExecutionException;
 
 /**
- * Default implementation of the {@link TrackingService} which
- * logs all incoming requests using its {@link Logger}.
+ * Tracks the current {@link HttpRequest} using the default
+ * binding for {@link TrackingService}.
  *
  * @author Willi Schoenborn
  */
 @Singleton
-final class LogTrackingService implements TrackingService {
+public class TrackRequest implements IpcCommand {
 
-    private static final Logger LOG = LoggerFactory.getLogger(LogTrackingService.class);
+    private final TrackingService service;
 
+    @Inject
+    public TrackRequest(TrackingService service) {
+        this.service = Preconditions.checkNotNull(service, "Service");
+    }
+    
     @Override
-    public void save(HttpRequest request) {
-        Preconditions.checkNotNull(request, "Request");
-        LOG.info("Request on {} (address={}, sessionId={}, userAgent={})", new Object[] {
-            request.getRequestUri(), request.getRemoteAddress(), 
-            request.getHttpSession().getSessionId(), request.getUserAgent()
-        });
+    public void execute(IpcCall call, Map<String, Object> result) throws IpcCommandExecutionException {
+        service.save(call.getConnection());
     }
 
 }
