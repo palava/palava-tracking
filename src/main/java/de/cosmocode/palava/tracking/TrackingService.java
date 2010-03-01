@@ -19,13 +19,11 @@
 
 package de.cosmocode.palava.tracking;
 
-import org.jboss.netty.handler.codec.http.HttpRequest;
-
 import de.cosmocode.palava.core.Service;
 import de.cosmocode.palava.ipc.IpcConnection;
 
 /**
- * A {@link Service} which handles {@link HttpRequest} tracking.
+ * A {@link Service} which handles http request tracking.
  *
  * @author Willi Schoenborn
  */
