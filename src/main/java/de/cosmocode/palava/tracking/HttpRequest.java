@@ -1,6 +1,5 @@
 package de.cosmocode.palava.tracking;
 
-import java.net.InetAddress;
 import java.net.URI;
 
 /**
@@ -8,11 +7,13 @@ import java.net.URI;
  *
  * @author Willi Schoenborn
  */
-public interface HttpSession {
+public interface HttpRequest {
 
    URI getRequestUri();
    
-   InetAddress getRemoteAddress();
+   URI getReferer();
+   
+   String getRemoteAddress();
    
    String getUserAgent();
    

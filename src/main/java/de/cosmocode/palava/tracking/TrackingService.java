@@ -20,7 +20,6 @@
 package de.cosmocode.palava.tracking;
 
 import de.cosmocode.palava.core.Service;
-import de.cosmocode.palava.ipc.IpcConnection;
 
 /**
  * A {@link Service} which handles http request tracking.
@@ -32,9 +31,9 @@ public interface TrackingService extends Service {
     /**
      * Tracks the specified request.
      * 
-     * @param connection the incoming request
+     * @param request the incoming request
      * @throws NullPointerException if request is null
      */
-    void save(IpcConnection connection);
+    void save(HttpRequest request);
     
 }

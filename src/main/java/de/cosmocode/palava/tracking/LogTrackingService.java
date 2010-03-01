@@ -25,8 +25,6 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Preconditions;
 import com.google.inject.Singleton;
 
-import de.cosmocode.palava.ipc.IpcConnection;
-
 /**
  * Default implementation of the {@link TrackingService} which
  * logs all incoming requests using its {@link Logger}.
@@ -39,10 +37,12 @@ final class LogTrackingService implements TrackingService {
     private static final Logger LOG = LoggerFactory.getLogger(LogTrackingService.class);
 
     @Override
-    public void save(IpcConnection connection) {
-        Preconditions.checkNotNull(connection, "Request");
-        // TODO extract http specific values
-        LOG.info("Request on {}", connection);
+    public void save(HttpRequest request) {
+        Preconditions.checkNotNull(request, "Request");
+        LOG.info("Request on {} (address={}, sessionId={}, userAgent={})", new Object[] {
+            request.getRequestUri(), request.getRemoteAddress(), 
+            request.getSessionId(), request.getUserAgent()
+        });
     }
 
 }
