@@ -30,7 +30,7 @@ import com.google.inject.Singleton;
  *
  * @author Willi Schoenborn
  */
-public final class LogTrackingModule implements Module {
+public final class LogTrackingServiceModule implements Module {
 
     @Override
     public void configure(Binder binder) {
