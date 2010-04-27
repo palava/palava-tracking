@@ -22,20 +22,45 @@ package de.cosmocode.palava.tracking;
 import java.net.URI;
 
 /**
- * 
+ * Simple value object used by {@link TrackingService}s to handle requests.
  *
  * @author Willi Schoenborn
  */
 public interface HttpRequest {
 
-   URI getRequestUri();
+    /**
+     * Provides the requested uri.
+     * 
+     * @return the uri
+     */
+    URI getRequestUri();
    
-   URI getReferer();
+    /**
+     * Provides the referer.
+     * 
+     * @return the referer or null if there is none
+     */
+    URI getReferer();
    
-   String getRemoteAddress();
+    /**
+     * Provides the remote address of the client.
+     * 
+     * @return the remove address
+     */
+    String getRemoteAddress();
    
-   String getUserAgent();
+    /**
+     * Provides the user agent of the client.
+     * 
+     * @return the user agent or null if there is none
+     */
+    String getUserAgent();
    
-   String getSessionId();
+    /**
+     * Provides the session id of the request's session.
+     * 
+     * @return the session id
+     */
+    String getSessionId();
     
 }

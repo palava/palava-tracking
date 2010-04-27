@@ -19,14 +19,12 @@
 
 package de.cosmocode.palava.tracking;
 
-import de.cosmocode.palava.core.Service;
-
 /**
- * A {@link Service} which handles http request tracking.
+ * A service which handles http request tracking.
  *
  * @author Willi Schoenborn
  */
-public interface TrackingService extends Service {
+public interface TrackingService {
 
     /**
      * Tracks the specified request.
