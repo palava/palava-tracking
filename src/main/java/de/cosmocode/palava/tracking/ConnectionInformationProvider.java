@@ -16,38 +16,23 @@
 
 package de.cosmocode.palava.tracking;
 
-import de.cosmocode.palava.ipc.Browser;
-
 import java.io.Serializable;
 import java.util.Map;
 
 /**
- * Represents one tracked request.
+ * Interface for implementations which deliver additional informations for the tracking. Implementations
+ * has to register itself with this interface in the Registry.
  *
  * @author Willi Schönborn
  * @author Tobias Sarnowski
  */
-public interface ConnectionInformation {
+public interface ConnectionInformationProvider {
 
     /**
-     * When the request was tracked.
+     * Stores informations to the currently running IpcConnection in the given map.
      *
-     * @return
+     * @param storage
      */
-    long getCurrentTimeMillis();
-
-    /**
-     * The browser informations.
-     *
-     * @return
-     */
-    Browser getBrowser();
-
-    /**
-     * Additional assorted informations about the request provided by {@link ConnectionInformationProvider}s.
-     *
-     * @return
-     */
-    Map<Serializable, Serializable> getMetaInformation();
+    void storeInformations(Map<Serializable, Serializable> storage);
     
 }
