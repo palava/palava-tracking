@@ -16,10 +16,10 @@
 
 package de.cosmocode.palava.tracking;
 
-import de.cosmocode.palava.ipc.Browser;
-
 import java.io.Serializable;
 import java.util.Map;
+
+import de.cosmocode.palava.ipc.Browser;
 
 /**
  * Represents one tracked request.

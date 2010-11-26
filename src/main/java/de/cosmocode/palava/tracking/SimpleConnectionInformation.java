@@ -16,11 +16,12 @@
 
 package de.cosmocode.palava.tracking;
 
-import com.google.common.base.Preconditions;
-import de.cosmocode.palava.ipc.Browser;
-
 import java.io.Serializable;
 import java.util.Map;
+
+import com.google.common.base.Preconditions;
+
+import de.cosmocode.palava.ipc.Browser;
 
 /**
  * 
