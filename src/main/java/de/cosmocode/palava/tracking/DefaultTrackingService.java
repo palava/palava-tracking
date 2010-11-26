@@ -55,6 +55,7 @@ import de.cosmocode.palava.ipc.IpcConnectionDestroyEvent;
  */
 final class DefaultTrackingService implements
     IpcCallCreateEvent, IpcConnectionDestroyEvent, Initializable, Disposable {
+    
     private static final Logger LOG = LoggerFactory.getLogger(DefaultTrackingService.class);
 
     private static final String CURRENT_BROWSER = DefaultTrackingService.class.getName() + ".CURRENT_BROWSER";
@@ -68,8 +69,9 @@ final class DefaultTrackingService implements
     private final Queue<ConnectionInformation> queue = new ConcurrentLinkedQueue<ConnectionInformation>();
 
     @Inject
-    public DefaultTrackingService(@Nonnull Registry registry, @Current Provider<Browser> currentBrowser,
-                                  TrackingStorage storage) {
+    public DefaultTrackingService(@Nonnull Registry registry, 
+        @Current Provider<Browser> currentBrowser,
+        TrackingStorage storage) {
 
         this.registry = Preconditions.checkNotNull(registry, "Registry");
         this.currentBrowser = Preconditions.checkNotNull(currentBrowser, "CurrentBrowser");
@@ -109,11 +111,14 @@ final class DefaultTrackingService implements
         } else {
             // collect additional informations
             final Map<Serializable, Serializable> data = Maps.newHashMap();
-            registry.notify(ConnectionInformationProvider.class, new Procedure<ConnectionInformationProvider>(){
+            
+            registry.notify(ConnectionInformationProvider.class, new Procedure<ConnectionInformationProvider>() {
+                
                 @Override
                 public void apply(ConnectionInformationProvider provider) {
                     provider.storeInformations(data);
                 }
+                
             });
 
             // save it
@@ -145,4 +150,5 @@ final class DefaultTrackingService implements
 
         storage.store(drained);
     }
+    
 }

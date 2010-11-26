@@ -32,7 +32,7 @@ public interface TrackingStorage {
      * Note: This call will not necessarily run asynchronous. If the storage requires some time, consider to go into
      * the background yourself.
      *
-     * @param requests
+     * @param requests all incoming request
      */
     void store(Iterable<? extends ConnectionInformation> requests);
     

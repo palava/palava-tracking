@@ -24,7 +24,7 @@ import com.google.common.base.Preconditions;
 import de.cosmocode.palava.ipc.Browser;
 
 /**
- * 
+ * Simple {@link ConnectionInformation} implementation.
  *
  * @since 1.0
  * @author Willi Schoenborn
@@ -36,16 +36,10 @@ final class SimpleConnectionInformation implements ConnectionInformation {
     private final Map<Serializable, Serializable> metaInformation;
     private final long currentTimeMillis;
 
-    /**
-     *
-     * @param currentTimeMillis System.currentTimeMillis()
-     * @param browser
-     * @param metaInformation
-     */
     public SimpleConnectionInformation(
         long currentTimeMillis,
         Browser browser,
-        Map<Serializable,Serializable> metaInformation) {
+        Map<Serializable, Serializable> metaInformation) {
 
         this.currentTimeMillis = currentTimeMillis;
         this.browser = Preconditions.checkNotNull(browser, "Browser");

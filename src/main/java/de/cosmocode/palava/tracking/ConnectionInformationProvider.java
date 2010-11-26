@@ -31,7 +31,7 @@ public interface ConnectionInformationProvider {
     /**
      * Stores informations to the currently running IpcConnection in the given map.
      *
-     * @param storage
+     * @param storage storage container for meta information
      */
     void storeInformations(Map<Serializable, Serializable> storage);
     

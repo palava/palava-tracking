@@ -32,21 +32,21 @@ public interface ConnectionInformation {
     /**
      * When the request was tracked.
      *
-     * @return
+     * @return the current time in milliseconds
      */
     long getCurrentTimeMillis();
 
     /**
-     * The browser informations.
+     * The {@link Browser} informations.
      *
-     * @return
+     * @return the current browser
      */
     Browser getBrowser();
 
     /**
      * Additional assorted informations about the request provided by {@link ConnectionInformationProvider}s.
      *
-     * @return
+     * @return associated meta information 
      */
     Map<Serializable, Serializable> getMetaInformation();
     
